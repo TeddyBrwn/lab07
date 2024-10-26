@@ -7,16 +7,10 @@ const {
   deleteProduct,
 } = require("../controllers/productController");
 
-// Route để tạo sản phẩm mới
-router.post("/product", createProduct);
-
-// Route để lấy danh sách tất cả sản phẩm
+// Định nghĩa các route cho sản phẩm
+router.post("/products", createProduct);
 router.get("/products", getProducts);
-
-// Route để cập nhật sản phẩm
-router.put("/product/:id", updateProduct);
-
-// Route để xóa sản phẩm
-router.delete("/product/:id", deleteProduct);
+router.put("/products/:id", updateProduct);
+router.delete("/products/:id", deleteProduct);
 
 module.exports = router;

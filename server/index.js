@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const userRoutes = require("./routes/userRouters");
+const productRoutes = require("./routes/productRoutes"); // Đảm bảo đường dẫn đúng
+const categoryRoutes = require("./routes/categoryRoutes");
 const Constants = require("./utils/constants"); // Kết nối với constants.js
 
 const JWT_SECRET = process.env.JWT_SECRET || generateRandomSecret();
@@ -26,6 +28,8 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("/api/users", userRoutes);
+app.use("/api", productRoutes); // Đảm bảo route sản phẩm được sử dụng đúng
+app.use("/api", categoryRoutes); // Đảm bảo route sản phẩm được sử dụng đúng
 
 // Start server
 const PORT = process.env.PORT || 3000;
